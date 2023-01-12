@@ -1,0 +1,67 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-module-flags: -target x86_64-apple-macos11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OmniBase
+import Darwin
+import Foundation
+@_exported import OmniBase
+import Swift
+import _Concurrency
+import Darwin.malloc
+public func OBLogCreate(subsystem: Swift.String, category: Swift.String) -> os.OSLog
+public enum OBLoggerLevel : Swift.UInt8 {
+  case off
+  case info
+  case debug
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+public func OBLogS(_ logger: OmniBase.OBLogger?, _ messageLevel: OmniBase.OBLoggerLevel, _ message: Swift.String)
+public func OBLoggerInitializeLogLevel(_ name: Swift.String) -> OmniBase.OBLogger?
+public func OBLoggerInitializeLogLevel(suiteName: Swift.String? = nil, key: Swift.String) -> OmniBase.OBLogger?
+public func maintainLogLevelPreference(for key: Swift.String, updater: ((OmniBase.OBLogger?) -> Swift.Void)?)
+public func maintainLogLevelPreference(suiteName: Swift.String?, key: Swift.String, updater: ((OmniBase.OBLogger?) -> Swift.Void)?)
+public protocol MemoryUseHistoryObserver : AnyObject {
+  func memoryUseHistory(_ history: OmniBase.MemoryUseHistory, changedBaseline: OmniBase.MemoryUseHistory.Sample)
+  func memoryUseHistory(_ history: OmniBase.MemoryUseHistory, addedSamples: [OmniBase.MemoryUseHistory.Sample])
+}
+@_hasMissingDesignatedInitializers public class MemoryUseHistory {
+  public static let shared: OmniBase.MemoryUseHistory
+  public struct Sample {
+    public let time: Foundation.TimeInterval
+    public let count: Swift.UInt
+    public let size: Swift.UInt
+  }
+  public var baseline: OmniBase.MemoryUseHistory.Sample? {
+    get
+  }
+  public var samples: [OmniBase.MemoryUseHistory.Sample] {
+    get
+  }
+  public func setBaseline()
+  public func add(observer: OmniBase.MemoryUseHistoryObserver)
+  public func sample()
+  @objc deinit
+}
+public func ExpectDeallocation(of object: @autoclosure () -> Swift.AnyObject?)
+extension Swift.String {
+  public var leakedCopy: Foundation.NSString {
+    get
+  }
+}
+public func OBRecordBacktraceS(_ message: Swift.StaticString, _ optype: OmniBase.OBBacktraceBufferType)
+public func OBRecordBacktraceWithContextS(_ message: Swift.StaticString, _ optype: OmniBase.OBBacktraceBufferType, _ context: Swift.AnyObject?)
+public func OBRecordBacktraceWithIntContextS(_ message: Swift.StaticString, _ optype: OmniBase.OBBacktraceBufferType, _ context: Swift.UInt)
+public func OBRecordBacktraceWithObjectS(_ object: Swift.AnyObject, _ optype: OmniBase.OBBacktraceBufferType)
+public func OBStopInDebugger(_ message: @autoclosure () -> Swift.String, file: Swift.String = #file, line: Swift.UInt32 = #line, function: Swift.String = #function)
+@inlinable public func OBMainAsync(execute operation: @escaping () -> Swift.Void, function: Swift.String = #function, file: Swift.String = #file, line: Swift.Int = #line) {
+    DispatchQueue.main.async(execute: operation)
+}
+@inlinable public func OBMainAsyncAfter(deadline: Dispatch.DispatchTime, execute operation: @escaping () -> Swift.Void, function: Swift.String = #function, file: Swift.String = #file, line: Swift.Int = #line) {
+    DispatchQueue.main.asyncAfter(deadline: deadline, execute: operation)
+}
+extension OmniBase.OBLoggerLevel : Swift.Equatable {}
+extension OmniBase.OBLoggerLevel : Swift.Hashable {}
+extension OmniBase.OBLoggerLevel : Swift.RawRepresentable {}

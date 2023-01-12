@@ -1,0 +1,231 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-module-flags: -target arm64-apple-macos11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OmniAppKit
+import AppKit
+import Foundation
+@_exported import OmniAppKit
+import OmniFoundation
+import Swift
+import _Concurrency
+@objc(OADocumentFileTypes) public class DocumentFileTypes : ObjectiveC.NSObject {
+  public enum Role : Swift.String {
+    case viewer
+    case editor
+    case none
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  final public let editableFileTypes: Swift.Set<OmniFoundation.UTI>
+  @objc public static var main: OmniAppKit.DocumentFileTypes
+  public init(bundle: Foundation.Bundle)
+  public init(readableTypes: Swift.Set<OmniFoundation.UTI>, writableTypes: Swift.Set<OmniFoundation.UTI>, editableTypes: Swift.Set<OmniFoundation.UTI>)
+  public var readableTypes: [OmniFoundation.UTI] {
+    get
+  }
+  public var writableTypes: [OmniFoundation.UTI] {
+    get
+  }
+  @objc public var readableTypeIdentifiers: [Swift.String] {
+    @objc get
+  }
+  @objc public var writableTypeIdentifiers: [Swift.String] {
+    @objc get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(OAScrollingCardView) @_Concurrency.MainActor(unsafe) open class ScrollingCardView : OmniAppKit.CardView {
+  @_Concurrency.MainActor(unsafe) override open class var defaultEdgeInsets: Foundation.NSEdgeInsets {
+    @_Concurrency.MainActor(unsafe) get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override public var cornerRadius: CoreGraphics.CGFloat {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override public var contentInsets: Foundation.NSEdgeInsets {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var scrollingContentInsets: Foundation.NSEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) override public var contentView: AppKit.NSView? {
+    @_Concurrency.MainActor(unsafe) get
+    @_Concurrency.MainActor(unsafe) set
+  }
+  @_Concurrency.MainActor(unsafe) public var scrollingContentView: AppKit.NSView? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var footerView: AppKit.NSView? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var insetsScrollersForFooterView: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public func flashScrollers()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateConstraints()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class RoundRectButton : AppKit.NSButton {
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String, image: AppKit.NSImage, target: Swift.AnyObject?, action: ObjectiveC.Selector?)
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String, target: Swift.AnyObject?, action: ObjectiveC.Selector?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public var alignmentRectInsets: Foundation.NSEdgeInsets {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var cornerRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var borderWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var textColor: AppKit.NSColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var borderColor: AppKit.NSColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var backgroundColor: AppKit.NSColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var highlightColor: AppKit.NSColor? {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class RoundRectButtonCell : AppKit.NSButtonCell {
+  @_Concurrency.MainActor(unsafe) final public var cornerRadius: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public var borderWidth: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) final public var borderColor: AppKit.NSColor?
+  @_Concurrency.MainActor(unsafe) final public var textColor: AppKit.NSColor?
+  @_Concurrency.MainActor(unsafe) final public var highlightColor: AppKit.NSColor?
+  @_Concurrency.MainActor(unsafe) @objc override final public var isBordered: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public var cellSize: Foundation.NSSize {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public func drawBezel(withFrame frame: Foundation.NSRect, in controlView: AppKit.NSView)
+  @_Concurrency.MainActor(unsafe) @objc override final public func drawInterior(withFrame cellFrame: Foundation.NSRect, in controlView: AppKit.NSView)
+  @_Concurrency.MainActor(unsafe) @objc override final public func draw(withFrame cellFrame: Foundation.NSRect, in controlView: AppKit.NSView)
+  @_Concurrency.MainActor(unsafe) @objc override final public func hitTest(for event: AppKit.NSEvent, in cellFrame: Foundation.NSRect, of controlView: AppKit.NSView) -> AppKit.NSCell.HitResult
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(textCell string: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(imageCell image: AppKit.NSImage?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(OACardView) @_Concurrency.MainActor(unsafe) open class CardView : AppKit.NSView {
+  @_Concurrency.MainActor(unsafe) open class var defaultCornerRadius: CoreGraphics.CGFloat {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) open class var defaultEdgeInsets: Foundation.NSEdgeInsets {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public var contentView: AppKit.NSView? {
+    get
+    set
+  }
+  @objc @_Concurrency.MainActor(unsafe) open var backgroundColor: AppKit.NSColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var shadowStyle: OmniAppKit.CardViewShadowStyle {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var cornerRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var edgeInsets: Foundation.NSEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var contentInsets: Foundation.NSEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateConstraints()
+  @objc deinit
+}
+@objc(OACardViewShadowStyle) public enum CardViewShadowStyle : Swift.Int {
+  case none
+  case aqua
+  case darkAqua
+  case automatic
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(OAStackedCardView) @_Concurrency.MainActor(unsafe) open class StackedCardView : OmniAppKit.CardView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) override public var contentView: AppKit.NSView? {
+    @_Concurrency.MainActor(unsafe) get
+    @_Concurrency.MainActor(unsafe) set
+  }
+  @_Concurrency.MainActor(unsafe) public var contentViews: [AppKit.NSView] {
+    get
+    set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var contentViewSpacing: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public func customSpacing(after contentView: AppKit.NSView) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public func setCustomSpacing(_ spacing: CoreGraphics.CGFloat, after contentView: AppKit.NSView)
+  @_Concurrency.MainActor(unsafe) public var footerView: AppKit.NSView? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateConstraints()
+  @objc deinit
+}
+extension AppKit.NSView {
+  @_Concurrency.MainActor(unsafe) public func enclosingView<T>(of type: T.Type) -> T? where T : AppKit.NSView
+}
+@_inheritsConvenienceInitializers @objc(OAScrollingStackedCardView) @_Concurrency.MainActor(unsafe) open class ScrollingStackedCardView : OmniAppKit.ScrollingCardView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: Foundation.NSRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) override public var scrollingContentView: AppKit.NSView? {
+    @_Concurrency.MainActor(unsafe) get
+    @_Concurrency.MainActor(unsafe) set
+  }
+  @_Concurrency.MainActor(unsafe) public var contentViews: [AppKit.NSView] {
+    get
+    set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var contentViewSpacing: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public func customSpacing(after contentView: AppKit.NSView) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public func setCustomSpacing(_ spacing: CoreGraphics.CGFloat, after contentView: AppKit.NSView)
+  @objc deinit
+}
+extension OmniAppKit.DocumentFileTypes.Role : Swift.Equatable {}
+extension OmniAppKit.DocumentFileTypes.Role : Swift.Hashable {}
+extension OmniAppKit.DocumentFileTypes.Role : Swift.RawRepresentable {}
+extension OmniAppKit.CardViewShadowStyle : Swift.Equatable {}
+extension OmniAppKit.CardViewShadowStyle : Swift.Hashable {}
+extension OmniAppKit.CardViewShadowStyle : Swift.RawRepresentable {}

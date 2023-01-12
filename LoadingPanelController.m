@@ -92,7 +92,7 @@
 	}
 	else
 	{
-		OBPRECONDITION( _loadingPanelModalSession != 0 );
+//		OBPRECONDITION( _loadingPanelModalSession != 0 );
 		[[NSApplication sharedApplication] endModalSession: _loadingPanelModalSession];
 		_loadingPanelModalSession = 0;
 		
@@ -103,7 +103,8 @@
 - (void) closeNoModalEnd
 {
 	//this only works if we startet a modal session for a panel (no sheet)
-	OBPRECONDITION( ![_loadingPanel isSheet] );
+//	OBPRECONDITION( ![_loadingPanel isSheet] );
+    
 	
 	//the sender asked us not to end the modal session (maybe because sender has run into an exception)
 	_loadingPanelModalSession = 0;
